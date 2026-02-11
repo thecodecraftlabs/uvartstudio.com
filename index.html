@@ -1,228 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UV Art Studio</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
-    body {
-        margin: 0;
-        font-family: "Poppins", sans-serif;
-        background: #f7f7f7;
-        color: #333;
-    }
 
-    /* HEADER */
-    header {
-        padding: 12px 25px;
-        background: #fff;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    header h2 {
-        margin: 0;
-        font-size: 22px;
-        font-weight: 600;
-        letter-spacing: .5px;
-    }
-    nav a {
-        text-decoration: none;
-        color: #444;
-        margin-left: 18px;
-        font-weight: 500;
-        font-size: 15px;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
 
-    /* HERO */
-    .hero {
-        height: 65vh;
-        background: url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&w=1200")
-                    center/cover no-repeat;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    .hero::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0,0,0,.55);
-    }
-    .hero-content {
-        color: white;
-        z-index: 3;
-    }
-    .hero h1 {
-        font-size: 45px;
-        margin-bottom: 10px;
-        font-weight: 600;
-    }
-    .hero p {
-        font-size: 18px;
-        opacity: .9;
-    }
+body{
+background:#0d0d0d;
+color:white;
+overflow-x:hidden;
+}
 
-    /* TITLE */
-    .section-title {
-        text-align: center;
-        font-size: 28px;
-        margin: 40px 0 15px;
-        font-weight: 600;
-    }
+/* ===== NAVBAR ===== */
 
-    /* GALLERY */
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 16px;
-        padding: 20px;
-    }
-    .gallery img {
-        width: 100%;
-        height: 260px;
-        object-fit: cover;
-        border-radius: 15px;
-        transition: 0.3s ease;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-    }
-    .gallery img:hover {
-        transform: scale(1.05);
-    }
+header{
+position:fixed;
+width:100%;
+padding:18px 60px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(14px);
+z-index:999;
+}
 
-    /* CONTACT BUTTONS */
-    .btn-box {
-        text-align: center;
-        margin: 40px 0;
-    }
-    .btn {
-        padding: 12px 24px;
-        border-radius: 8px;
-        color: white;
-        text-decoration: none;
-        font-size: 16px;
-        margin: 10px;
-        display: inline-block;
-        font-weight: 500;
-    }
-    .whatsapp { background: #25D366; }
-    .call { background: #007bff; }
+header h2{
+font-weight:700;
+letter-spacing:1px;
+background:linear-gradient(45deg,#ff00ff,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
 
-    /* FOOTER */
-    footer {
-        text-align: center;
-        padding: 20px;
-        background: #222;
-        color: #ccc;
-        margin-top: 20px;
-    }
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:white;
+opacity:.7;
+transition:.4s;
+}
 
-    /* MOBILE */
-    @media(max-width: 600px) {
-        .hero h1 { font-size: 34px; }
-        .hero { height: 50vh; }
-    }
+nav a:hover{
+opacity:1;
+color:#00ffff;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+}
+
+/* PARALLAX SHAPES */
+
+.shape{
+position:absolute;
+border-radius:50%;
+filter:blur(120px);
+opacity:.6;
+animation:float 8s infinite alternate ease-in-out;
+}
+
+.shape1{
+width:400px;
+height:400px;
+background:#ff00ff;
+top:-100px;
+left:-100px;
+}
+
+.shape2{
+width:350px;
+height:350px;
+background:#00ffff;
+bottom:-100px;
+right:-100px;
+animation-delay:2s;
+}
+
+@keyframes float{
+from{transform:translateY(0)}
+to{transform:translateY(80px)}
+}
+
+.hero-content{
+z-index:5;
+}
+
+.hero h1{
+font-size:60px;
+background:linear-gradient(45deg,#ff00ff,#00ffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:15px;
+}
+
+.hero p{
+opacity:.8;
+font-size:18px;
+}
+
+/* ===== SECTION TITLE ===== */
+
+.section-title{
+text-align:center;
+margin:80px 0 30px;
+font-size:32px;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+padding:40px;
+}
+
+.card{
+position:relative;
+overflow:hidden;
+border-radius:20px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(14px);
+transition:.5s;
+}
+
+.card img{
+width:100%;
+height:300px;
+object-fit:cover;
+transition:.6s;
+}
+
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(45deg,transparent,#00ffff44,transparent);
+opacity:0;
+transition:.5s;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.02);
+box-shadow:0 0 35px #00ffff55;
+}
+
+.card:hover::before{
+opacity:1;
+}
+
+.card:hover img{
+transform:scale(1.1);
+}
+
+/* ===== CONTACT ===== */
+
+.contact-box{
+text-align:center;
+margin:80px 0;
+}
+
+.btn{
+display:inline-block;
+margin:15px;
+padding:14px 30px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+letter-spacing:1px;
+background:linear-gradient(45deg,#ff00ff,#00ffff);
+color:white;
+transition:.4s;
+box-shadow:0 0 20px #00ffff66;
+}
+
+.btn:hover{
+transform:scale(1.1);
+box-shadow:0 0 40px #00ffff;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+text-align:center;
+padding:30px;
+background:#050505;
+opacity:.6;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+.hero h1{font-size:38px;}
+header{padding:18px 20px;}
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <h2>UV Art Studio</h2>
-    <nav>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<h2>UV Art Studio</h2>
+<nav>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
 </header>
 
+<!-- HERO -->
+
 <section class="hero">
-    <div class="hero-content">
-        <h1>Welcome to UV Art Studio</h1>
-        <p>Premium AI Art • Digital Portraits • Creative Designs</p>
-    </div>
+
+<div class="shape shape1"></div>
+<div class="shape shape2"></div>
+
+<div class="hero-content">
+<h1>UV Art Studio</h1>
+<p>Futuristic AI Art • Digital Portraits • Premium Creativity</p>
+</div>
+
 </section>
 
-<h2 class="section-title" id="gallery">Gallery</h2>
+<!-- GALLERY -->
+
+<h2 class="section-title" id="gallery">Creative Gallery</h2>
 
 <div class="gallery">
- <a href="https://ibb.co/FkJcsSQX"><img src="https://i.ibb.co/Ngpf180r/Whats-App-Image-2024-09-08-at-1-59-38-PM.jpg" alt="Whats-App-Image-2024-09-08-at-1-59-38-PM" border="0"></a>
-<a href="https://ibb.co/sJvWvW2g"><img src="https://i.ibb.co/G3vHvH0d/Whats-App-Image-2024-09-08-at-2-03-36-PM-1.jpg" alt="Whats-App-Image-2024-09-08-at-2-03-36-PM-1" border="0"></a>
-<a href="https://imgbb.com/"><img src="https://i.ibb.co/zTpPyMBx/yashi-log.jpg" alt="yashi log" border="0"></a>
-<a href="https://ibb.co/cchKymym"><img src="https://i.ibb.co/3ym5TJTJ/b1.jpg" alt="b1" border="0"></a>
-<a href="https://ibb.co/Kcck8qxW"><img src="https://i.ibb.co/TDDSN8Mt/b2.jpg" alt="b2" border="0"></a>
-<a href="https://ibb.co/0RR405PS"><img src="https://i.ibb.co/G44YZmgL/b3.jpg" alt="b3" border="0"></a>
-<a href="https://ibb.co/jPmdfdFn"><img src="https://i.ibb.co/C3gq8qFR/b4.jpg" alt="b4" border="0"></a>
-<a href="https://ibb.co/7twzw4fN"><img src="https://i.ibb.co/Xxh4h8Qk/b5.jpg" alt="b5" border="0"></a>
-<a href="https://ibb.co/F4mHHPRy"><img src="https://i.ibb.co/0ymsswH6/b6.jpg" alt="b6" border="0"></a>
-<a href="https://ibb.co/6c3KXvhy"><img src="https://i.ibb.co/bjS4bHh6/b8.jpg" alt="b8" border="0"></a>
-<a href="https://ibb.co/9kzL6Z8K"><img src="https://i.ibb.co/KpRkdK04/b9.jpg" alt="b9" border="0"></a>
-<a href="https://ibb.co/d4dXMfXL"><img src="https://i.ibb.co/b5SYm6Y2/b10.jpg" alt="b10" border="0"></a>
-<a href="https://ibb.co/SwBxLcwK"><img src="https://i.ibb.co/60FZd804/brain.jpg" alt="brain" border="0"></a>
-<a href="https://ibb.co/SDLNzZsp"><img src="https://i.ibb.co/gbnyxcjC/p08.jpg" alt="p08" border="0"></a>
-<a href="https://ibb.co/KxmZFG5s"><img src="https://i.ibb.co/QvXBrcJH/p11.jpg" alt="p11" border="0"></a>
-<a href="https://ibb.co/pBPqhBWk"><img src="https://i.ibb.co/0RX5sRBz/p12.jpg" alt="p12" border="0"></a>
-<a href="https://ibb.co/hxv9vN26"><img src="https://i.ibb.co/JWPtPTr1/p13.jpg" alt="p13" border="0"></a>
-<a href="https://ibb.co/hx7fZQjQ"><img src="https://i.ibb.co/wZ0swGXG/p14.jpg" alt="p14" border="0"></a>
-<a href="https://ibb.co/j94ybLV0"><img src="https://i.ibb.co/Q7mPp68S/p15.jpg" alt="p15" border="0"></a>
-<a href="https://ibb.co/jk8vGMvC"><img src="https://i.ibb.co/xq2SGjSn/p21.jpg" alt="p21" border="0"></a>
-<img class="highlight" src="https://i.ibb.co/xrT15Fb/Whats-App-Image-2026-02-10-at-12-24-22-PM-2.jpg">
-<img src="https://i.ibb.co/1GHXKX8f/Whats-App-Image-2026-02-10-at-12-24-22-PM-1.jpg">
-<img src="https://i.ibb.co/JW4Kgh6J/Whats-App-Image-2026-02-10-at-12-24-58-PM-1.jpg">
-<img src="https://i.ibb.co/7J7JnCby/Whats-App-Image-2026-02-10-at-12-24-57-PM-1.jpg">
-  <a href="https://ibb.co/JFvJKYwV"><img src="https://i.ibb.co/Xk7Rbnr1/Whats-App-Image-2024-09-08-at-1-29-35-PM-1.jpg" alt="Whats-App-Image-2024-09-08-at-1-29-35-PM-1" border="0"></a>
-<img class="highlight" src="https://i.ibb.co/Hf4439yt/Whats-App-Image-2026-02-10-at-12-24-57-PM.jpg">
-<a href="https://ibb.co/N2h27mGg"><img src="https://i.ibb.co/RTnT7BJG/Whats-App-Image-2025-07-20-at-12-38-31-PM.jpg" alt="Whats-App-Image-2025-07-20-at-12-38-31-PM" border="0"></a>
-<a href="https://ibb.co/B2ffPTTZ"><img src="https://i.ibb.co/Jjccdrr7/Whats-App-Image-2025-07-21-at-10-40-13-PM.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-13-PM" border="0"></a>
-<a href="https://ibb.co/xSNDxhcz"><img src="https://i.ibb.co/HDjV57MG/Whats-App-Image-2025-07-21-at-10-40-14-PM.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-14-PM" border="0"></a>
-<a href="https://ibb.co/5hBY65Fz"><img src="https://i.ibb.co/k2Q3xh1r/Whats-App-Image-2025-07-21-at-10-40-14-PM-1.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-14-PM-1" border="0"></a>
-<a href="https://ibb.co/3ydLTxWM"><img src="https://i.ibb.co/DDWS1Bk8/Whats-App-Image-2025-07-21-at-10-40-14-PM-2.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-14-PM-2" border="0"></a>
-<a href="https://ibb.co/Myy25Hcq"><img src="https://i.ibb.co/kVVH6T4Y/Whats-App-Image-2025-07-21-at-10-40-15-PM-1.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-15-PM-1" border="0"></a>
-<a href="https://ibb.co/vCD68xh1"><img src="https://i.ibb.co/sptdrvCj/Whats-App-Image-2025-07-21-at-10-40-16-PM.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-16-PM" border="0"></a>
-<a href="https://ibb.co/3YNtvBGj"><img src="https://i.ibb.co/4gTB2P9X/Whats-App-Image-2025-07-21-at-10-40-15-PM-2.jpg" alt="Whats-App-Image-2025-07-21-at-10-40-15-PM-2" border="0"></a>
-<a href="https://ibb.co/9m0fGYRc"><img src="https://i.ibb.co/SDg1Jvq5/Whats-App-Image-2026-02-10-at-12-24-22-PM-2.jpg" alt="Whats-App-Image-2026-02-10-at-12-24-22-PM-2" border="0"></a>
-<a href="https://ibb.co/QvjZFnHY"><img src="https://i.ibb.co/gZFGMwWt/Whats-App-Image-2026-02-10-at-12-24-57-PM-1.jpg" alt="Whats-App-Image-2026-02-10-at-12-24-57-PM-1" border="0"></a>
-<a href="https://ibb.co/m5pDRDrz"><img src="https://i.ibb.co/XxH2W2fJ/Whats-App-Image-2026-02-10-at-12-24-57-PM.jpg" alt="Whats-App-Image-2026-02-10-at-12-24-57-PM" border="0"></a>
-<a href="https://ibb.co/4wmWJjdb"><img src="https://i.ibb.co/SDsNJKrk/Whats-App-Image-2026-02-10-at-12-24-58-PM.jpg" alt="Whats-App-Image-2026-02-10-at-12-24-58-PM" border="0"></a>
-<a href="https://ibb.co/0VnL5ZS1"><img src="https://i.ibb.co/Lh0yK6WB/cow.jpg" alt="cow" border="0"></a>
-<a href="https://ibb.co/N29wWbZ6"><img src="https://i.ibb.co/CKbxVDh5/santa.jpg" alt="santa" border="0"></a>
-<a href="https://ibb.co/qFm4WDWY"><img src="https://i.ibb.co/jZ3xW8Wk/ganesh.jpg" alt="ganesh" border="0"></a>
-<a href="https://ibb.co/Z6Qg8v7J"><img src="https://i.ibb.co/XZn5s6M4/y1-6.jpg" alt="y1-6" border="0"></a>
-<a href="https://ibb.co/VWhxLWjZ"><img src="https://i.ibb.co/zhLFmhnY/y1-7.jpg" alt="y1-7" border="0"></a>
-<a href="https://ibb.co/jP70SKZN"><img src="https://i.ibb.co/NdwDMhnv/y1-8.jpg" alt="y1-8" border="0"></a>
-<a href="https://ibb.co/9m8XgkK5"><img src="https://i.ibb.co/dsW9MwCY/y1-9.jpg" alt="y1-9" border="0"></a>
-<a href="https://ibb.co/yB4TKTBq"><img src="https://i.ibb.co/DgrXmXgQ/p7.jpg" alt="p7" border="0"></a>
-<a href="https://ibb.co/hxkdT1Rf"><img src="https://i.ibb.co/Y46dVT7Z/p9.jpg" alt="p9" border="0"></a>
-<a href="https://ibb.co/FbBVsTpw"><img src="https://i.ibb.co/jvLRVXtM/p22.jpg" alt="p22" border="0"></a>
-<a href="https://ibb.co/VpmZ72Gw"><img src="https://i.ibb.co/G3TLKcDH/p23.jpg" alt="p23" border="0"></a>
-<a href="https://ibb.co/SwmLsJJ9"><img src="https://i.ibb.co/nM1WgRR5/p24.jpg" alt="p24" border="0"></a>
-<a href="https://ibb.co/jvLmtFmm"><img src="https://i.ibb.co/yn8t2Jtt/p25.jpg" alt="p25" border="0"></a>
-<a href="https://ibb.co/ZRmKfxVL"><img src="https://i.ibb.co/9mt2pWN8/p26.jpg" alt="p26" border="0"></a>
-<a href="https://ibb.co/yn0qFdxj"><img src="https://i.ibb.co/bg1X5QG9/p27.jpg" alt="p27" border="0"></a>
-<a href="https://ibb.co/7JFnx8jW"><img src="https://i.ibb.co/HDQtL1Bz/p28.jpg" alt="p28" border="0"></a>
-<a href="https://ibb.co/xK3S1HkG"><img src="https://i.ibb.co/Q7XFPdgn/p30.jpg" alt="p30" border="0"></a>
-<a href="https://ibb.co/csJ2c37"><img src="https://i.ibb.co/yx0gnPb/p31.jpg" alt="p31" border="0"></a>
+
+<div class="card">
+<img src="https://i.ibb.co/Ngpf180r/Whats-App-Image-2024-09-08-at-1-59-38-PM.jpg">
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/G3vHvH0d/Whats-App-Image-2024-09-08-at-2-03-36-PM-1.jpg">
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/3ym5TJTJ/b1.jpg">
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/KpRkdK04/b9.jpg">
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/JWPtPTr1/p13.jpg">
+</div>
+
+<div class="card">
+<img src="https://i.ibb.co/Lh0yK6WB/cow.jpg">
+</div>
 
 </div>
 
-<h2 class="section-title" id="contact">Contact Us</h2>
+<!-- CONTACT -->
 
-<div class="btn-box">
-    <a class="btn whatsapp"
-       href="https://wa.me/9691419001?text=Hello%20UV%20Art%20Studio,%20I%20want%20to%20know%20more."
-       target="_blank">
-       WhatsApp Now
-    </a>
-    <a class="btn call" href="tel:9691419001">Call Now</a>
+<h2 class="section-title" id="contact">Get Your Artwork Now</h2>
+
+<div class="contact-box">
+
+<a class="btn" href="https://wa.me/9691419001" target="_blank">
+WhatsApp Now
+</a>
+
+<a class="btn" href="tel:9691419001">
+Call Now
+</a>
+
 </div>
 
-<footer>© 2026 UV Art Studio — All Rights Reserved</footer>
+<footer>
+© 2026 UV Art Studio — Crafted With Creativity
+</footer>
 
 </body>
 </html>
