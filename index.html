@@ -8,22 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{background:#0b0b0f;color:white;overflow-x:hidden}
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:"Poppins",sans-serif;
-}
-
-body{
-background:#0d0d0d;
-color:white;
-overflow-x:hidden;
-}
-
-/* ===== NAVBAR ===== */
-
+/* NAVBAR */
 header{
 position:fixed;
 width:100%;
@@ -35,172 +23,178 @@ background:rgba(255,255,255,0.05);
 backdrop-filter:blur(14px);
 z-index:999;
 }
-
 header h2{
 font-weight:700;
-letter-spacing:1px;
 background:linear-gradient(45deg,#ff00ff,#00ffff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
-
 nav a{
 margin-left:25px;
 text-decoration:none;
 color:white;
 opacity:.7;
-transition:.4s;
+transition:.3s;
 }
+nav a:hover{opacity:1;color:#00ffff}
 
-nav a:hover{
-opacity:1;
-color:#00ffff;
-}
-
-/* ===== HERO ===== */
-
+/* HERO */
 .hero{
 height:100vh;
-position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+position:relative;
 overflow:hidden;
 }
-
-/* PARALLAX SHAPES */
-
-.shape{
+.blob{
 position:absolute;
+width:400px;height:400px;
 border-radius:50%;
 filter:blur(120px);
 opacity:.6;
 animation:float 8s infinite alternate ease-in-out;
 }
-
-.shape1{
-width:400px;
-height:400px;
-background:#ff00ff;
-top:-100px;
-left:-100px;
-}
-
-.shape2{
-width:350px;
-height:350px;
-background:#00ffff;
-bottom:-100px;
-right:-100px;
-animation-delay:2s;
-}
-
-@keyframes float{
-from{transform:translateY(0)}
-to{transform:translateY(80px)}
-}
-
-.hero-content{
-z-index:5;
-}
+.b1{background:#ff00ff;left:-100px;top:-100px}
+.b2{background:#00ffff;right:-100px;bottom:-100px;animation-delay:2s}
+@keyframes float{to{transform:translateY(60px)}}
 
 .hero h1{
 font-size:60px;
 background:linear-gradient(45deg,#ff00ff,#00ffff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-margin-bottom:15px;
+}
+.hero p{opacity:.8;margin-top:15px}
+.hero button{
+margin-top:30px;
+padding:14px 30px;
+border:none;
+border-radius:30px;
+background:linear-gradient(45deg,#ff00ff,#00ffff);
+color:white;
+cursor:pointer;
+transition:.3s;
+}
+.hero button:hover{transform:scale(1.1)}
+
+/* SECTION */
+section{padding:100px 60px}
+.section-title{text-align:center;font-size:32px;margin-bottom:50px}
+
+/* ABOUT */
+.about{
+display:flex;
+flex-wrap:wrap;
+gap:40px;
+align-items:center;
+justify-content:center;
+}
+.about-card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(15px);
+padding:40px;
+border-radius:20px;
+max-width:600px;
+line-height:1.6;
 }
 
-.hero p{
-opacity:.8;
-font-size:18px;
+/* SERVICES */
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+.service{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+.service:hover{
+transform:translateY(-10px);
+box-shadow:0 0 25px #00ffff55;
 }
 
-/* ===== SECTION TITLE ===== */
-
-.section-title{
-text-align:center;
-margin:80px 0 30px;
-font-size:32px;
-}
-
-/* ===== GALLERY ===== */
-
+/* PORTFOLIO */
 .gallery{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
-padding:40px;
 }
-
-.card{
-position:relative;
-overflow:hidden;
-border-radius:20px;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(14px);
-transition:.5s;
-}
-
-.card img{
+.gallery img{
 width:100%;
-height:300px;
+height:280px;
 object-fit:cover;
-transition:.6s;
-}
-
-.card::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(45deg,transparent,#00ffff44,transparent);
-opacity:0;
+border-radius:20px;
 transition:.5s;
 }
-
-.card:hover{
-transform:translateY(-10px) scale(1.02);
-box-shadow:0 0 35px #00ffff55;
+.gallery img:hover{
+transform:scale(1.05);
+box-shadow:0 0 25px #ff00ff55;
 }
 
-.card:hover::before{
-opacity:1;
-}
-
-.card:hover img{
-transform:scale(1.1);
-}
-
-/* ===== CONTACT ===== */
-
-.contact-box{
+/* TESTIMONIAL */
+.testimonial{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:20px;
 text-align:center;
-margin:80px 0;
+max-width:700px;
+margin:0 auto;
 }
 
-.btn{
+/* PROCESS */
+.process{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+}
+.step{
+background:rgba(255,255,255,0.05);
+padding:30px;
+border-radius:20px;
+width:250px;
+text-align:center;
+}
+
+/* PRICING */
+.pricing{
+display:flex;
+flex-wrap:wrap;
+gap:30px;
+justify-content:center;
+}
+.plan{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:20px;
+text-align:center;
+width:280px;
+transition:.4s;
+}
+.plan:hover{
+transform:scale(1.05);
+box-shadow:0 0 30px #00ffff66;
+}
+
+/* CONTACT */
+.contact{
+text-align:center;
+}
+.contact a{
 display:inline-block;
 margin:15px;
 padding:14px 30px;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-letter-spacing:1px;
+border-radius:30px;
 background:linear-gradient(45deg,#ff00ff,#00ffff);
+text-decoration:none;
 color:white;
-transition:.4s;
-box-shadow:0 0 20px #00ffff66;
 }
 
-.btn:hover{
-transform:scale(1.1);
-box-shadow:0 0 40px #00ffff;
-}
-
-/* ===== FOOTER ===== */
-
+/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
@@ -208,13 +202,10 @@ background:#050505;
 opacity:.6;
 }
 
-/* MOBILE */
-
 @media(max-width:768px){
-.hero h1{font-size:38px;}
-header{padding:18px 20px;}
+.hero h1{font-size:38px}
+section{padding:80px 20px}
 }
-
 </style>
 </head>
 
@@ -223,75 +214,87 @@ header{padding:18px 20px;}
 <header>
 <h2>UV Art Studio</h2>
 <nav>
-<a href="#gallery">Gallery</a>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#portfolio">Portfolio</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
-<!-- HERO -->
-
-<section class="hero">
-
-<div class="shape shape1"></div>
-<div class="shape shape2"></div>
-
-<div class="hero-content">
-<h1>UV Art Studio</h1>
-<p>Futuristic AI Art • Digital Portraits • Premium Creativity</p>
+<div class="hero">
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div>
+<h1>Creative Digital Art Studio</h1>
+<p>Futuristic AI Art • Premium Portraits • Custom Designs</p>
+<button onclick="location.href='#portfolio'">Explore Work</button>
+</div>
 </div>
 
+<section id="about">
+<h2 class="section-title">About Us</h2>
+<div class="about">
+<div class="about-card">
+We are a futuristic digital art studio crafting premium AI-generated portraits,
+creative designs and unique artistic experiences for modern clients worldwide.
+</div>
+</div>
 </section>
 
-<!-- GALLERY -->
+<section id="services">
+<h2 class="section-title">Our Services</h2>
+<div class="services">
+<div class="service">AI Portrait Design</div>
+<div class="service">Custom Digital Artwork</div>
+<div class="service">Brand Creative Visual</div>
+<div class="service">Social Media Art</div>
+</div>
+</section>
 
-<h2 class="section-title" id="gallery">Creative Gallery</h2>
-
+<section id="portfolio">
+<h2 class="section-title">Featured Work</h2>
 <div class="gallery">
-
-<div class="card">
 <img src="https://i.ibb.co/Ngpf180r/Whats-App-Image-2024-09-08-at-1-59-38-PM.jpg">
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/G3vHvH0d/Whats-App-Image-2024-09-08-at-2-03-36-PM-1.jpg">
-</div>
-
-<div class="card">
-<img src="https://i.ibb.co/3ym5TJTJ/b1.jpg">
-</div>
-
-<div class="card">
 <img src="https://i.ibb.co/KpRkdK04/b9.jpg">
-</div>
-
-<div class="card">
 <img src="https://i.ibb.co/JWPtPTr1/p13.jpg">
-</div>
-
-<div class="card">
 <img src="https://i.ibb.co/Lh0yK6WB/cow.jpg">
 </div>
+</section>
 
+<section>
+<h2 class="section-title">Client Testimonials</h2>
+<div class="testimonial">
+"Absolutely stunning artwork! Highly professional and creative studio."
 </div>
+</section>
 
-<!-- CONTACT -->
-
-<h2 class="section-title" id="contact">Get Your Artwork Now</h2>
-
-<div class="contact-box">
-
-<a class="btn" href="https://wa.me/9691419001" target="_blank">
-WhatsApp Now
-</a>
-
-<a class="btn" href="tel:9691419001">
-Call Now
-</a>
-
+<section>
+<h2 class="section-title">Our Process</h2>
+<div class="process">
+<div class="step">1. Consultation</div>
+<div class="step">2. Concept Creation</div>
+<div class="step">3. Design & Refinement</div>
+<div class="step">4. Final Delivery</div>
 </div>
+</section>
+
+<section>
+<h2 class="section-title">Pricing</h2>
+<div class="pricing">
+<div class="plan">Basic<br>₹999</div>
+<div class="plan">Premium<br>₹1999</div>
+<div class="plan">Ultimate<br>₹3999</div>
+</div>
+</section>
+
+<section id="contact" class="contact">
+<h2 class="section-title">Get Your Artwork Today</h2>
+<a href="https://wa.me/9691419001" target="_blank">WhatsApp Now</a>
+<a href="tel:9691419001">Call Now</a>
+</section>
 
 <footer>
-© 2026 UV Art Studio — Crafted With Creativity
+© 2026 UV Art Studio — All Rights Reserved
 </footer>
 
 </body>
