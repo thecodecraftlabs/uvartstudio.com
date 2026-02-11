@@ -3,15 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UV Art Studio</title>
+<title>Yashika Purwar | Art Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif;}
-body{background:#0b0b0f;color:white;overflow-x:hidden}
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+scroll-behavior:smooth;
+}
 
-/* NAVBAR */
+body{
+background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460);
+color:white;
+overflow-x:hidden;
+}
+
+/* ===== NAVBAR ===== */
+
 header{
 position:fixed;
 width:100%;
@@ -20,191 +32,180 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(14px);
+backdrop-filter:blur(12px);
 z-index:999;
 }
+
 header h2{
 font-weight:700;
-background:linear-gradient(45deg,#ff00ff,#00ffff);
+letter-spacing:1px;
+background:linear-gradient(45deg,#ff9a9e,#fad0c4);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
+
 nav a{
 margin-left:25px;
 text-decoration:none;
 color:white;
-opacity:.7;
+opacity:.8;
 transition:.3s;
 }
-nav a:hover{opacity:1;color:#00ffff}
+nav a:hover{
+opacity:1;
+color:#ffd6ff;
+}
 
-/* HERO */
+/* ===== HERO ===== */
+
 .hero{
 height:100vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
+padding:0 20px;
 position:relative;
-overflow:hidden;
 }
-.blob{
+
+.hero::before{
+content:"";
 position:absolute;
-width:400px;height:400px;
+width:450px;
+height:450px;
+background:#ff9a9e;
 border-radius:50%;
-filter:blur(120px);
-opacity:.6;
-animation:float 8s infinite alternate ease-in-out;
+filter:blur(140px);
+top:-100px;
+left:-100px;
+opacity:.4;
 }
-.b1{background:#ff00ff;left:-100px;top:-100px}
-.b2{background:#00ffff;right:-100px;bottom:-100px;animation-delay:2s}
-@keyframes float{to{transform:translateY(60px)}}
+
+.hero::after{
+content:"";
+position:absolute;
+width:450px;
+height:450px;
+background:#a18cd1;
+border-radius:50%;
+filter:blur(140px);
+bottom:-100px;
+right:-100px;
+opacity:.4;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+}
 
 .hero h1{
-font-size:60px;
-background:linear-gradient(45deg,#ff00ff,#00ffff);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
+font-size:55px;
+margin-bottom:15px;
 }
-.hero p{opacity:.8;margin-top:15px}
-.hero button{
-margin-top:30px;
+
+.hero p{
+font-size:20px;
+opacity:.9;
+margin-bottom:25px;
+}
+
+.btn{
+display:inline-block;
 padding:14px 30px;
-border:none;
 border-radius:30px;
-background:linear-gradient(45deg,#ff00ff,#00ffff);
+background:linear-gradient(45deg,#ff9a9e,#a18cd1);
+text-decoration:none;
 color:white;
-cursor:pointer;
-transition:.3s;
+font-weight:500;
+transition:.4s;
 }
-.hero button:hover{transform:scale(1.1)}
+.btn:hover{
+transform:scale(1.1);
+}
 
 /* SECTION */
-section{padding:100px 60px}
-.section-title{text-align:center;font-size:32px;margin-bottom:50px}
+
+section{
+padding:100px 60px;
+}
+
+.section-title{
+text-align:center;
+font-size:32px;
+margin-bottom:50px;
+}
 
 /* ABOUT */
-.about{
-display:flex;
-flex-wrap:wrap;
-gap:40px;
-align-items:center;
-justify-content:center;
-}
+
 .about-card{
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(15px);
+max-width:800px;
+margin:auto;
+background:rgba(255,255,255,0.08);
 padding:40px;
 border-radius:20px;
-max-width:600px;
-line-height:1.6;
+backdrop-filter:blur(12px);
+line-height:1.7;
 }
 
-/* SERVICES */
-.services{
+/* EXPERIENCE */
+
+.experience{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:30px;
 }
-.service{
-background:rgba(255,255,255,0.05);
+
+.exp-card{
+background:rgba(255,255,255,0.08);
 padding:30px;
 border-radius:20px;
 transition:.4s;
 }
-.service:hover{
+.exp-card:hover{
 transform:translateY(-10px);
-box-shadow:0 0 25px #00ffff55;
+box-shadow:0 0 25px rgba(255,255,255,0.2);
 }
 
-/* PORTFOLIO */
+/* GALLERY */
+
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
+
 .gallery img{
 width:100%;
-height:280px;
+height:260px;
 object-fit:cover;
-border-radius:20px;
+border-radius:15px;
 transition:.5s;
 }
 .gallery img:hover{
 transform:scale(1.05);
-box-shadow:0 0 25px #ff00ff55;
-}
-
-/* TESTIMONIAL */
-.testimonial{
-background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:20px;
-text-align:center;
-max-width:700px;
-margin:0 auto;
-}
-
-/* PROCESS */
-.process{
-display:flex;
-flex-wrap:wrap;
-gap:30px;
-justify-content:center;
-}
-.step{
-background:rgba(255,255,255,0.05);
-padding:30px;
-border-radius:20px;
-width:250px;
-text-align:center;
-}
-
-/* PRICING */
-.pricing{
-display:flex;
-flex-wrap:wrap;
-gap:30px;
-justify-content:center;
-}
-.plan{
-background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:20px;
-text-align:center;
-width:280px;
-transition:.4s;
-}
-.plan:hover{
-transform:scale(1.05);
-box-shadow:0 0 30px #00ffff66;
+box-shadow:0 0 20px #ffd6ff;
 }
 
 /* CONTACT */
+
 .contact{
 text-align:center;
 }
-.contact a{
-display:inline-block;
-margin:15px;
-padding:14px 30px;
-border-radius:30px;
-background:linear-gradient(45deg,#ff00ff,#00ffff);
-text-decoration:none;
-color:white;
+.contact p{
+margin-bottom:20px;
 }
 
-/* FOOTER */
 footer{
 text-align:center;
 padding:30px;
-background:#050505;
-opacity:.6;
+background:#111;
+opacity:.7;
 }
 
 @media(max-width:768px){
-.hero h1{font-size:38px}
-section{padding:80px 20px}
+.hero h1{font-size:36px;}
+section{padding:80px 20px;}
 }
 </style>
 </head>
@@ -212,89 +213,93 @@ section{padding:80px 20px}
 <body>
 
 <header>
-<h2>UV Art Studio</h2>
+<h2>Yashika Purwar</h2>
 <nav>
 <a href="#about">About</a>
-<a href="#services">Services</a>
+<a href="#experience">Experience</a>
 <a href="#portfolio">Portfolio</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
 
-<div class="hero">
-<div class="blob b1"></div>
-<div class="blob b2"></div>
-<div>
-<h1>Creative Digital Art Studio</h1>
-<p>Futuristic AI Art • Premium Portraits • Custom Designs</p>
-<button onclick="location.href='#portfolio'">Explore Work</button>
+<!-- HERO -->
+
+<section class="hero">
+<div class="hero-content">
+<h1>Yashika Purwar</h1>
+<p>Art Teacher & Freelance Artist</p>
+<a href="#portfolio" class="btn">View My Artwork</a>
 </div>
-</div>
+</section>
+
+<!-- ABOUT -->
 
 <section id="about">
-<h2 class="section-title">About Us</h2>
-<div class="about">
+<h2 class="section-title">Profile Summary</h2>
 <div class="about-card">
-We are a futuristic digital art studio crafting premium AI-generated portraits,
-creative designs and unique artistic experiences for modern clients worldwide.
-</div>
+Creative and passionate Art Teacher with over 4 years of experience in teaching and freelance artwork. Skilled in designing customised art curricula, engaging students through hands-on creative projects, and adapting teaching styles to different learning needs. Specialised in Stone Art, Sketching, Painting, Drawing, and Miniature Painting, with a strong commitment to nurturing creativity and artistic expression.
 </div>
 </section>
 
-<section id="services">
-<h2 class="section-title">Our Services</h2>
-<div class="services">
-<div class="service">AI Portrait Design</div>
-<div class="service">Custom Digital Artwork</div>
-<div class="service">Brand Creative Visual</div>
-<div class="service">Social Media Art</div>
+<!-- EXPERIENCE -->
+
+<section id="experience">
+<h2 class="section-title">Work Experience</h2>
+<div class="experience">
+
+<div class="exp-card">
+<h3>Art Instructor</h3>
+<p><strong>Brain Train Academy, Jabalpur</strong><br>
+February 2022 – Present</p>
+<ul>
+<li>Developed art curricula based on student needs</li>
+<li>Conducted interactive creative sessions</li>
+<li>Adapted teaching methods for diverse learners</li>
+<li>Guided practical art projects</li>
+</ul>
+</div>
+
+<div class="exp-card">
+<h3>Freelance Artist</h3>
+<p><strong>UV Studio and Makeover</strong><br>
+January 2020 – Present</p>
+<ul>
+<li>Created customized artwork for clients</li>
+<li>Managed multiple projects</li>
+<li>Collaborated to deliver artistic concepts</li>
+<li>Maintained high quality & creativity</li>
+</ul>
+</div>
+
 </div>
 </section>
+
+<!-- PORTFOLIO -->
 
 <section id="portfolio">
-<h2 class="section-title">Featured Work</h2>
+<h2 class="section-title">Creative Art Portfolio</h2>
 <div class="gallery">
+
 <img src="https://i.ibb.co/Ngpf180r/Whats-App-Image-2024-09-08-at-1-59-38-PM.jpg">
 <img src="https://i.ibb.co/KpRkdK04/b9.jpg">
 <img src="https://i.ibb.co/JWPtPTr1/p13.jpg">
 <img src="https://i.ibb.co/Lh0yK6WB/cow.jpg">
+
 </div>
 </section>
 
-<section>
-<h2 class="section-title">Client Testimonials</h2>
-<div class="testimonial">
-"Absolutely stunning artwork! Highly professional and creative studio."
-</div>
-</section>
-
-<section>
-<h2 class="section-title">Our Process</h2>
-<div class="process">
-<div class="step">1. Consultation</div>
-<div class="step">2. Concept Creation</div>
-<div class="step">3. Design & Refinement</div>
-<div class="step">4. Final Delivery</div>
-</div>
-</section>
-
-<section>
-<h2 class="section-title">Pricing</h2>
-<div class="pricing">
-<div class="plan">Basic<br>₹999</div>
-<div class="plan">Premium<br>₹1999</div>
-<div class="plan">Ultimate<br>₹3999</div>
-</div>
-</section>
+<!-- CONTACT -->
 
 <section id="contact" class="contact">
-<h2 class="section-title">Get Your Artwork Today</h2>
-<a href="https://wa.me/9691419001" target="_blank">WhatsApp Now</a>
-<a href="tel:9691419001">Call Now</a>
+<h2 class="section-title">Contact Me</h2>
+<p>📞 9691419001<br>
+📧 purwaryashi23@gmail.com</p>
+
+<a href="https://wa.me/9691419001" class="btn" target="_blank">WhatsApp Now</a>
 </section>
 
 <footer>
-© 2026 UV Art Studio — All Rights Reserved
+© 2026 Yashika Purwar | All Rights Reserved
 </footer>
 
 </body>
